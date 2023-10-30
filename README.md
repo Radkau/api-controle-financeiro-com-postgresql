@@ -272,6 +272,51 @@ Imagem de Funcionamento:
 
 <br><br>
 
+### `POST` `/transacao`
+Essa é a rota que será utilizada para cadastrar uma transação associada ao usuário logado.<br><br>
+
+#### **Exemplo de requisição**
+
+```javascript
+// POST /transacao
+{
+    "tipo": "entrada",
+    "descricao": "Salário",
+    "valor": 300000,
+    "data": "2022-03-24T15:30:00.000Z",
+    "categoria_id": 6
+}
+```
+
+#### **Exemplos de resposta**
+
+```javascript
+// HTTP Status 200 / 201 / 204
+{
+    "id": 3,
+    "tipo": "entrada",
+    "descricao": "Salário",
+    "valor": 300000,
+    "data": "2022-03-24T15:30:00.000Z",
+    "usuario_id": 5,
+    "categoria_id": 6,
+    "categoria_nome": "Salários",
+}
+```
+
+```javascript
+// HTTP Status 400 / 401 / 403 / 404
+{
+    "mensagem": "Todos os campos obrigatórios devem ser informados."
+}
+```
+
+<br>
+
+Imagem de funcionamento:
+
+<br><br>
+
 ### `GET` `/transacao`
 Essa é a rota que será chamada quando o usuario logado quiser listar todas as suas transações cadastradas.<br><br>
 
@@ -412,48 +457,6 @@ Imagem de funcionamento:
 
 <br><br>
 
-### `POST` `/transacao`
-Essa é a rota que será utilizada para cadastrar uma transação associada ao usuário logado.<br><br>
-
-#### **Exemplo de requisição**
-
-```javascript
-// POST /transacao
-{
-    "tipo": "entrada",
-    "descricao": "Salário",
-    "valor": 300000,
-    "data": "2022-03-24T15:30:00.000Z",
-    "categoria_id": 6
-}
-```
-
-#### **Exemplos de resposta**
-
-```javascript
-// HTTP Status 200 / 201 / 204
-{
-    "id": 3,
-    "tipo": "entrada",
-    "descricao": "Salário",
-    "valor": 300000,
-    "data": "2022-03-24T15:30:00.000Z",
-    "usuario_id": 5,
-    "categoria_id": 6,
-    "categoria_nome": "Salários",
-}
-```
-
-```javascript
-// HTTP Status 400 / 401 / 403 / 404
-{
-    "mensagem": "Todos os campos obrigatórios devem ser informados."
-}
-```
-
-<br>
-
-Imagem de funcionamento:
 
 
 <br><br>
