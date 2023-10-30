@@ -47,6 +47,15 @@ npm run dev
 
 ## 🌐 Endpoints
 
-- **POST** **/usuario** - Cadastra Usuários
-- GET /user/:id - Busca o usuário do id indicado
-- POST /user- Cria um usuário
+- **POST** **/usuario** - Cadastra Usuários;
+- **POST** **/login** - Logar Usuários;
+- **GET** **/usuario** - Detalhar Usuário Logado;
+- **PUT** **/usuario** - Atualizar Usuário Logado;
+- **GET** **/categoria** - Listar Categorias;
+- **POST** **/transacao** - Cadastra Transação para o Usuário Logado;
+- **GET** **/transacao** - Lista transações do Usuário Logado;
+- **GET** **/transacao?filtro[]=Roupas** - Lista Transação do Usuário Logado pelo Filtro Informado;
+- **GET** **/transacao/:id** - Detalha Transação do Usuário Logado;
+- **PUT** **/transacao/:id** - Atualiza Transação do Usuário Logado;
+- **DELETE** **/transacao/:id** - Deleta Transação do Usuário Logado;
+- **GET** **/transacao/extrato** - Busca as Transações de Entrada e Saída mostrando o valor total de cada uma delas.
