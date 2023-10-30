@@ -59,3 +59,7 @@ npm run dev
 - **PUT** **/transacao/:id** - Atualiza Transação do Usuário Logado;
 - **DELETE** **/transacao/:id** - Deleta Transação do Usuário Logado;
 - **GET** **/transacao/extrato** - Busca as Transações de Entrada e Saída mostrando o valor total de cada uma delas.
+
+<br>
+
+## 
