@@ -23,6 +23,8 @@ const validarCadastroEmail = async (req, res, next) => {
     } catch (error) {
         return res.status(500).json({mensagem: 'Erro interno do servidor!'})
     }
+    
+    next()
 }
 
 const validarLoginUsuario = async (req, res, next) => {

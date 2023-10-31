@@ -156,9 +156,13 @@ const extratoTransacoesUsuarioLogado = async (req, res) => {
     const { id } = req.usuario
 
     try {
-        const { rows } = await pool.query(
+        const { rows, rowCount } = await pool.query(
             `select tipo, sum(valor) as total from transacoes where usuario_id = $1 group by tipo`, [id]
         )
+
+        if(rowCount == 0) {
+            return res.status(200).json(rows)
+        }
     
         const entrada = rows[0].total
         const saida = rows[1].total
