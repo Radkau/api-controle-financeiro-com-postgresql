@@ -1,9 +1,13 @@
 # Despesas Financeiras com PostgreSQL
 
-Este projeto tem como objetivo criar uma API de despesas financeiras com conexão ao banco de dados PostgreSQL. <br>
+Este projeto tem como objetivo criar uma API de despesas financeiras com conexão ao banco de dados PostgreSQL.<br><br>
+Na segurança da API foi utilizado o "bcrypt" para criação e verificação de senhas criptografadas e o "JWT" para criação e verificação de tokens do usuário. <br><br>
 O projeto está na versão 1.0 e irei melhorar ele a cada aprendizado que eu tiver.
 
 #
+
+<br><br>
+
 ## **Linguagem**
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
@@ -66,16 +70,19 @@ npm run dev
 
 ## ⚠️ IMPORTANTE ⚠️
 
-**Para rodar o projeto é necessário a criação do Banco de Dados em PostgreSQL.**<br>
-As linhas de comando para modelagem do bando de dados se encontra no arquivo "dump.sql".
+**Para rodar o projeto é necessário a criação do Banco de Dados em PostgreSQL.**<br><br>
+As linhas de comando para modelagem do banco de dados se encontra no arquivo "dump.sql".<br>
+No arquivo "conexao.js" você precisa inserir suas configurações de conexão com o banco de dados.<br>
+Assim como no exemplo da imagem:
 
-![dump-sql](https://github.com/Radkau/api-despesas-financeiras-com-postgresql/assets/116851140/28e5a710-0645-4faa-b2da-588155470ac7)
+![dump-sql](https://github.com/Radkau/api-despesas-financeiras-com-postgresql/assets/116851140/28e5a710-0645-4faa-b2da-588155470ac7)       
+![conexao-postgresql](https://github.com/Radkau/api-despesas-financeiras-com-postgresql/assets/116851140/ae89ceb2-ee3e-4bef-8597-274679c57cc3)
 
 <br>
 
 ## 👨🏻‍💻Funcionamento dos Endpoints
 
-### **POST** **/usuario**
+### `POST` `/usuario`
 Essa é a rota que será utilizada para cadastrar um novo usuario no sistema.<br><br>
 
 #### **Exemplo de requisição**
@@ -106,11 +113,6 @@ Essa é a rota que será utilizada para cadastrar um novo usuario no sistema.<br
     "mensagem": "Já existe usuário cadastrado com o e-mail informado."
 }
 ```
-<br>
-
-Imagem do funcionamento:
-
-![cadastro-usuario](https://github.com/Radkau/api-despesas-financeiras-com-postgresql/assets/116851140/a383160c-16b3-48da-8252-1ade9ee9b500)
 
 <br><br>
 
@@ -147,12 +149,6 @@ Essa é a rota que permite o usuario cadastrado realizar o login no sistema.<br>
     "mensagem": "Usuário e/ou senha inválido(s)."
 }
 ```
-
-<br>
-
-Imagem do funcionamento:
-
-![login-usuario](https://github.com/Radkau/api-despesas-financeiras-com-postgresql/assets/116851140/d30e782e-7f4c-43ea-9735-9334b0f02951)
 
 <br><br>
 
@@ -192,11 +188,6 @@ Essa é a rota que será chamada quando o usuario quiser obter os dados do seu p
 }
 ```
 
-<br>
-
-Imagem de Funcionamento:
-
-
 <br><br>
 
 ### `PUT` `/usuario`
@@ -226,11 +217,6 @@ Essa é a rota que será chamada quando o usuário quiser realizar alterações 
     "mensagem": "O e-mail informado já está sendo utilizado por outro usuário."
 }
 ```
-
-<br>
-
-Imagem de funcionamento:
-
 
 <br><br>
 
@@ -264,11 +250,6 @@ Essa é a rota que será chamada quando o usuario logado quiser listar todas as 
 // HTTP Status 200 / 201 / 204
 []
 ```
-
-<br>
-
-Imagem de Funcionamento:
-
 
 <br><br>
 
@@ -310,10 +291,6 @@ Essa é a rota que será utilizada para cadastrar uma transação associada ao u
     "mensagem": "Todos os campos obrigatórios devem ser informados."
 }
 ```
-
-<br>
-
-Imagem de funcionamento:
 
 <br><br>
 
@@ -360,14 +337,9 @@ Essa é a rota que será chamada quando o usuario logado quiser listar todas as 
 []
 ```
 
-<br>
-
-Imagem de Funcionamento:
-
-
 <br><br>
 
-### `GET` `/transacao?filtro[]=Roupas&filtro[]=Salário`
+### `GET` `/transacao?filtro[]=Roupas`
 Essa é a rota que será chamada quando o usuario logado quiser listar suas transações cadastradas com filtro.<br><br>
 
 #### **Exemplo de requisição**
@@ -410,11 +382,6 @@ Essa é a rota que será chamada quando o usuario logado quiser listar suas tran
 []
 ```
 
-<br>
-
-Imagem de Funcionamento:
-
-
 <br><br>
 
 ### `GET` `/transacao/:id`
@@ -450,13 +417,84 @@ Essa é a rota que será chamada quando o usuario logado quiser obter uma das su
 }
 ```
 
-<br>
+<br><br>
 
-Imagem de funcionamento:
+### `PUT` `/transacao/:id`
+Essa é a rota que será chamada quando o usuario logado quiser atualizar uma das suas transações cadastradas.<br><br>
 
+#### **Exemplo de requisição**
+
+```javascript
+// PUT /transacao/2
+{
+ "descricao": "Sapato amarelo",
+ "valor": 15800,
+ "data": "2022-03-23 12:35:00",
+ "categoria_id": 4,
+ "tipo": "saida"
+}
+```
+
+#### **Exemplos de resposta**
+
+```javascript
+// HTTP Status 200 / 201 / 204
+// Sem conteúdo no corpo (body) da resposta
+```
+
+```javascript
+// HTTP Status 400 / 401 / 403 / 404
+{
+    "mensagem": "Todos os campos obrigatórios devem ser informados."
+}
+```
 
 <br><br>
 
+### `DELETE` `/transacao/:id`
+Essa é a rota que será chamada quando o usuario logado quiser excluir uma das suas transações cadastradas.<br><br>
 
+#### **Exemplo de requisição**
+
+```javascript
+// DELETE /transacao/2
+// Sem conteúdo no corpo (body) da requisição
+```
+
+#### **Exemplos de resposta**
+
+```javascript
+// HTTP Status 200 / 201 / 204
+// Sem conteúdo no corpo (body) da resposta
+```
+
+```javascript
+// HTTP Status 400 / 401 / 403 / 404
+{
+    "mensagem": "Transação não encontrada."
+}
+```
 
 <br><br>
+
+### `GET` `/transacao/extrato`
+Essa é a rota que será chamada quando o usuario logado quiser obter o extrato de todas as suas transações cadastradas.<br><br>
+
+#### **Exemplo de requisição**
+
+```javascript
+// GET /transacao/extrato
+// Sem conteúdo no corpo (body) da requisição
+```
+
+#### **Exemplos de resposta**
+
+```javascript
+// HTTP Status 200 / 201 / 204
+{
+ "entrada": 300000,
+ "saida": 15800
+}
+```
+
+#
