@@ -28,7 +28,6 @@ const {
 const listarCategorias = require('./controladores/categorias')
 const verificarUsuarioLogado = require('./intermediarios/autenticacao')
 
-
 const rotas = express()
 
 rotas.post('/usuario', validarCamposUsuario, validarCadastroEmail, cadastrarUsuarios)
@@ -39,13 +38,13 @@ rotas.use(verificarUsuarioLogado)
 rotas.get('/usuario', detalharUsuarioLogado)
 rotas.put('/usuario', validarCamposUsuario, validarAtualizarEmail, atualizarUsuarioLogado)
 
-rotas.get('/categorias', listarCategorias)
+rotas.get('/categoria', listarCategorias)
 
 rotas.post('/transacao', validarCamposTransacao, cadastrarTransacaoUsuarioLogado)
 rotas.get('/transacao', listarTransacoesUsuarioLogado)
 rotas.get('/transacao/extrato', extratoTransacoesUsuarioLogado)
 rotas.get('/transacao/:id', validarTransacao, detalharTransacaoUsuarioLogado)
-rotas.put('/transacao/:id', validarCamposTransacao, validarTransacao, atualizarTransacaoUsuarioLogado )
+rotas.put('/transacao/:id', validarCamposTransacao, validarTransacao, atualizarTransacaoUsuarioLogado)
 rotas.delete('/transacao/:id', validarTransacao, excluirTransacaoUsuarioLogado)
 
 

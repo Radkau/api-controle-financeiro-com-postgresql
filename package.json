@@ -1,7 +1,7 @@
 {
   "name": "api-despesas-financeiras-com-postgresql",
   "version": "1.0.0",
-  "description": "API de Despesas Financeiras com PostgreSQL",
+  "description": "API Back-End de Despesas Financeiras com PostgreSQL",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.js"
