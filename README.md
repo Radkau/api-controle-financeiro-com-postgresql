@@ -1,6 +1,6 @@
-# Despesas Financeiras com PostgreSQL
+# Controle Financeiro com PostgreSQL
 
-Este projeto tem como objetivo criar uma API de despesas financeiras com conexão ao banco de dados PostgreSQL.<br><br>
+Este projeto tem como objetivo criar uma API de controle financeiro com conexão ao banco de dados PostgreSQL.<br><br>
 Na segurança da API foi utilizado o "bcrypt" para criação e verificação de senhas criptografadas e o "JWT" para criação e verificação de tokens do usuário. <br><br>
 O projeto está na versão 1.0 e irei melhorar ele a cada aprendizado que eu tiver.
 
